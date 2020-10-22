@@ -1,42 +1,42 @@
 // dependencies
-const connection = require("./connection.js");
+const connection = require("../config/connection.js");
 
 // ORM
 const orm = {
 
-    // select
+    // select 
     selectAll: function (tableInput, cb) {
-        const queryString = "SELECT * from ??";
-        connection.query(queryString, [tableInput], function (err, res) {
+        const queryString = "SELECT * FROM " + tableInput + ";";
+        connection.query(queryString, function (err, result) {
             if (err) {
                 throw err;
             }
-            cb(res);
+            cb(result);
         });
     },
 
     // insert
-    insertOne: function (tableInput, columnName, burgerName, cb) {
-        const queryString = "INSERT INTO ?? (??) VALUES (?)";
-        connection.query(queryString, [tableInput, columnName, burgerName], function (err, res) {
+    insertOne: function (table, value, cb) {
+        const queryString = "INSERT INTO " + table + " SET ?";
+        connection.query(queryString, value, function (err, result) {
             if (err) {
                 throw err;
             }
-            cb(res);
+            cb(result);
         });
     },
 
     // update
-    updateOne: function (tableInput, updateColumnName, updateRowVal, searchColumnName, searchRowVal, cb) {
-        const queryString = "UPDATE ?? SET ?? = ? WHERE ?? = ?";
-        connection.query(queryString, [tableInput, updateColumnName, updateRowVal, searchColumnName, searchRowVal], function (err, res) {
+    updateOne: function (table, condition, id, cb) {
+        const queryString = "UPDATE " + table + " SET " + condition + " WHERE id = ?";
+        connection.query(queryString, id, function (err, result) {
             if (err) {
                 throw err;
             }
-            cb(res);
+            cb(result);
         });
     }
 };
 
-// export ORM
+// export
 module.exports = orm;
