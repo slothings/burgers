@@ -5,26 +5,27 @@ const burger = require("../models/burger.js");
 
 // get request
 router.get("/", function (req, res) {
-	burger.selectAll(function (data) {
-		const burgerData = {
+	burger.all(function (data) {
+		var burgerData = {
 			burgers: data
 		};
-
+		console.log(burgerData);
 		res.render("index", burgerData);
 	});
 });
 
 // post request
 router.post("/api/burgers", function (req, res) {
-	burger.insertOne(req.body, function (result) {
+	burger.create(req.body, function (result) {
 		res.json({ id: result.insertId });
 	});
 });
 
-// put request
+// put/update request
 router.put("/api/burgers/:id", function (req, res) {
 	let condition;
-	burger.updateOne(condition, req.params.id, function (result) {
+
+	burger.update(condition, req.params.id, function (result) {
 		if (result.changedRows == 0) {
 			return res.status(404).end();
 		} else {

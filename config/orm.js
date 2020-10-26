@@ -4,7 +4,7 @@ const connection = require("../config/connection.js");
 // ORM
 const orm = {
 
-    // select 
+    // select
     selectAll: function (tableInput, cb) {
         const queryString = "SELECT * FROM " + tableInput + ";";
         connection.query(queryString, function (err, result) {
