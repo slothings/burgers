@@ -6,41 +6,41 @@ li {
 	background: #faebd7;
   }
   
-  .label {
+.label {
 	font-weight: bold;
   }
   
-  .create-update-form {
+.create-update-form {
 	padding: 5px;
 	margin: 5px;
 	background: aqua;
   }
   
-  .form-group {
+.form-group {
 	margin-bottom: 5px;
   }
   
-  h1 {
+h1 {
 	margin: 15 auto;
 	text-align: center;
   }
   
-  .burgers {
+.burgers {
 	float: left;
   }
   
-  .devoured {
+.devoured {
 	float: right;
   }
   
-  .adder {
+.adder {
 	padding-top: 50px;
 	text-align: center;
 	margin: 0, auto;
 	clear: both;
   }
   
-  img {
+img {
 	margin: 0 auto;
 	padding: 25px;
 	height: 300px;
